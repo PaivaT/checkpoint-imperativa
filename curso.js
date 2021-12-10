@@ -17,11 +17,11 @@ const curso = {
 
         if (
             mediaFinal >= this.minMedia &&
-            estudante.quantidadeFaltas < this.maxFaltas
+            estudante.faltas < this.maxFaltas
         ) {
             return `${estudante.nome} foi aprovado(a)`;
         } else if (
-            estudante.quantidadeFaltas === this.maxFaltas &&
+            estudante.faltas === this.maxFaltas &&
             mediaFinal > this.minMedia * 1.1
         ) {
             return `${estudante.nome} foi aprovado(a) com ressalvas`;
@@ -41,7 +41,7 @@ const curso = {
     }
 }
 
-curso.adcAluno('Felipe', 0, [10, 5, 7]);
+curso.adcAluno('Felipe', 4, [10, 6, 7]);
 
 const aprovados = curso.listaAprovados();
 
