@@ -16,13 +16,13 @@ const curso = {
         const mediaFinal = aluno.calculoMedia(estudante);
 
         if (
-            mediaFinal >= this.notaAprovacao &&
-            estudante.quantidadeFaltas < this.faltasMaximas
+            mediaFinal >= this.minMedia &&
+            estudante.quantidadeFaltas < this.maxFaltas
         ) {
             return `${estudante.nome} foi aprovado(a)`;
         } else if (
-            estudante.quantidadeFaltas === this.faltasMaximas &&
-            mediaFinal > this.notaAprovacao * 1.1
+            estudante.quantidadeFaltas === this.maxFaltas &&
+            mediaFinal > this.minMedia * 1.1
         ) {
             return `${estudante.nome} foi aprovado(a) com ressalvas`;
         } else {
