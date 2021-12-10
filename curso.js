@@ -13,17 +13,20 @@ const curso = {
         this.listaEstudantes.push(new aluno.adicionarAluno(nome, faltas, notas));
     },
     aprovacao: function(estudante) {
-        const media = aluno.media(estudante);
+        const mediaFinal = aluno.calculoMedia(estudante);
 
         if (
-            this.media >= this.minMedia &&
-            estudante.quantidadeFaltas <= this.maxFaltas
+            mediaFinal >= this.notaAprovacao &&
+            estudante.quantidadeFaltas < this.faltasMaximas
         ) {
-            return `${estudante.nome} foi aprovado(a)`
-
-        }   else {
-
-            return `${estudante.nome} foi reprovado(a)`
+            return `${estudante.nome} foi aprovado(a)`;
+        } else if (
+            estudante.quantidadeFaltas === this.faltasMaximas &&
+            mediaFinal > this.notaAprovacao * 1.1
+        ) {
+            return `${estudante.nome} foi aprovado(a) com ressalvas`;
+        } else {
+            return `${estudante.nome} foi reprovado(a)`;
         }
     },
 

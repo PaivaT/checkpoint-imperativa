@@ -7,7 +7,7 @@ const aluno = {
         this.faltas = faltas;
         this.notas = notas;
     },
-    media: function(aluno) {
+    calculoMedia: function(aluno) {
         let total = 0;
 
         aluno.notas.forEach(nota => {
